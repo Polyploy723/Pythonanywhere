@@ -33,9 +33,10 @@ def stock_form():
 
 @app.route('/stockresult', methods = ['GET'])
 def stock_result():
-    result = requests.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=0YDLVC3E71JTDBDH")
+    stock_symbol = request.args.get('amount')
+    result = requests.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+stock_symbol+"&apikey=0YDLVC3E71JTDBDH")
     jsondata = result.json()
-    stock_symbol = "IBM"
+    
     stock_data = jsondata["Time Series (Daily)"]
     
     return render_template('stock_show.html',stock_symbol = stock_symbol, stock_data= stock_data)

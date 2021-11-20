@@ -27,11 +27,11 @@ def currency_result():
 
 # my plphavantage.co api key 0YDLVC3E71JTDBDH
 @app.route('/stock')
-def currency_form():
+def stock_form():
     return render_template('stock.html')
 
 @app.route('/stockresult', methods = ['GET'])
-def currency_result():
+def stock_result():
     result = requests.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=0YDLVC3E71JTDBDH")
     jsondata = result.json()
     stock_symbol = "IBM"

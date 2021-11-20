@@ -27,6 +27,7 @@ def currency_result():
 
 # my plphavantage.co api key 0YDLVC3E71JTDBDH
 @app.route('/stock')
+
 def stock_form():
     return render_template('stock.html')
 

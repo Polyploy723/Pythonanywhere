@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Stock form - Form</title>
+</head>
+<body>
+   <h1>Stock symbol</h1>
+
+   <form action="/stockresult" method="get">
+   Enter your stock symbol: <input type="text" name="amount" value="0">
+   <br>
+   <input type="submit" value="Submit">
+   </form> 
+  
+</body>
+</html>

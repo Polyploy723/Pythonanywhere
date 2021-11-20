@@ -23,3 +23,18 @@ def currency_result():
     thb = float(eur)*float(eur_thb)
     return render_template('result.html',amount_eur=eur,amount_thb=thb)
 
+
+
+# my plphavantage.co api key 0YDLVC3E71JTDBDH
+@app.route('/stock')
+def currency_form():
+    return render_template('stock.html')
+
+@app.route('/stockresult', methods = ['GET'])
+def currency_result():
+    result = requests.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=0YDLVC3E71JTDBDH")
+    jsondata = result.json()
+    stock_symbol = "IBM"
+    stock_data = jsondata["Time Series (Daily)"]
+    
+    return render_template('stock_show.html',stock_symbol = stock_symbol, stock_data= stock_data)
